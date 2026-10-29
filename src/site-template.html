@@ -15,7 +15,7 @@
 --grad:linear-gradient(90deg,#186DFF,#0893B3);
 --ok-fg:#0B5B3C;--ok-bg:#E3F3EC;--wip-fg:#6B4A00;--wip-bg:#FFF3D6;--plan-fg:#465A78;--plan-bg:#EEF1F7;
 --dark-text:#C9D3EE;--dark-muted:#9DB0DA;--dark-accent:#7FDBEA;
---font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+--font:"Inter","Inter Fallback",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 --t-display:clamp(40px,5.6cqi,82px);--t-h2:clamp(31px,3.7cqi,53px);--t-h3:clamp(20px,2cqi,24px);--t-lead:clamp(17px,1.4cqi,19px);
 --sec-top:clamp(64px,8cqi,120px);--sec-bot:clamp(52px,6cqi,90px);--gutter:clamp(20px,3cqi,40px);
 --r-control:10px;--r-sm:14px;--r-card:20px;--r-band:28px;
@@ -261,7 +261,7 @@ p{margin:0}
 .ftr .top{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:32px}
 .ftr .logo img{height:24px;filter:brightness(0) invert(1)}
 .ftr p{margin-top:14px;max-width:34ch;color:var(--dark-text)}
-.ftr h4{color:#fff;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px}
+.ftr h3{color:#fff;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px}
 .ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .ftr a{color:var(--dark-text);text-decoration:none}
 .ftr a:hover{color:#fff;text-decoration:underline}
@@ -725,6 +725,11 @@ p{margin:0}
 @container (max-width:767px){.sel{width:100%;min-width:0}.sel select{flex:1;min-width:0;max-width:100%;text-overflow:ellipsis}.gal{scroll-padding:0 var(--gutter)}.gcard{scroll-snap-align:start}}
 
 @container (max-width:767px){.pill-top{font-size:12.5px;gap:6px;padding:7px 14px}.pill-top i{display:none}.pill-top b::after{content:" ·"}}
+
+/* ===== CLS fixes: reserve gallery space before JS renders the cards ===== */
+.gal{min-height:calc(clamp(160px,14cqi,200px)*1.25 + 20px);box-sizing:border-box}
+@container (max-width:767px){.gal{min-height:calc(100cqi*.46*1.25 + 20px)}}
+
 /* reduced motion */
 @media (prefers-reduced-motion:reduce){.site *,.site *::before,.site *::after{animation:none!important;transition:none!important}}
 .site.rm *,.site.rm *::before,.site.rm *::after,.site.paused *,.site.paused *::before{animation-play-state:paused!important}
@@ -1052,10 +1057,10 @@ p{margin:0}
 <footer class="ftr"><div class="wrap">
  <div class="top">
   <div><a class="logo" href="#work"><img src="/assets/img/c8baf450d2.png" alt="Vinta" width="110" height="24"></a><p>A product and engineering partner for healthcare. We turn complex clinical needs into connected software, built around your care model and engineered to scale.</p><p><a href="mailto:contact@vintasoftware.com">contact@vintasoftware.com</a></p></div>
-  <div><h4>Healthcare</h4><ul><li><a href="https://www.vintasoftware.com/services/ehr-development-modernization" target="_blank" rel="noopener">EHR Development</a></li><li><a href="https://www.vintasoftware.com/services/healthcare-discovery" target="_blank" rel="noopener">Healthcare Discovery</a></li><li><a href="https://www.vintasoftware.com/services/medplum" target="_blank" rel="noopener">Medplum Development</a></li><li><a href="https://www.vintasoftware.com/services/healthcare-integration-interoperability" target="_blank" rel="noopener">Integrations &amp; Interoperability</a></li><li><a href="https://www.vintasoftware.com/services/cms-interoperability-enablement" target="_blank" rel="noopener">CMS Interoperability Enablement</a></li></ul></div>
-  <div><h4>Technology</h4><ul><li><a href="https://www.vintasoftware.com/services/python-web-development" target="_blank" rel="noopener">Python</a></li><li><a href="https://www.vintasoftware.com/services/django-development" target="_blank" rel="noopener">Django</a></li><li><a href="https://www.vintasoftware.com/tech/react-native" target="_blank" rel="noopener">React Native</a></li><li><a href="https://www.vintasoftware.com/tech/fastapi" target="_blank" rel="noopener">FastAPI</a></li><li><a href="https://www.vintasoftware.com/tech/next-js" target="_blank" rel="noopener">Next.js</a></li></ul></div>
-  <div><h4>Company</h4><ul><li><a href="https://www.vintasoftware.com/about-us" target="_blank" rel="noopener">About us</a></li><li><a href="https://www.vintasoftware.com/careers" target="_blank" rel="noopener">Careers</a></li><li><a href="https://www.vintasoftware.com/blog" target="_blank" rel="noopener">Blog</a></li><li><a href="https://github.com/vintasoftware/" target="_blank" rel="noopener">Open source</a></li></ul></div>
-  <div><h4>Offices</h4><ul><li>1110 Brickell Ave, Suite 200, Miami, FL 33131</li><li>248 Rua do Brum, Recife, PE 50030-260</li></ul></div>
+  <div><h3>Healthcare</h3><ul><li><a href="https://www.vintasoftware.com/services/ehr-development-modernization" target="_blank" rel="noopener">EHR Development</a></li><li><a href="https://www.vintasoftware.com/services/healthcare-discovery" target="_blank" rel="noopener">Healthcare Discovery</a></li><li><a href="https://www.vintasoftware.com/services/medplum" target="_blank" rel="noopener">Medplum Development</a></li><li><a href="https://www.vintasoftware.com/services/healthcare-integration-interoperability" target="_blank" rel="noopener">Integrations &amp; Interoperability</a></li><li><a href="https://www.vintasoftware.com/services/cms-interoperability-enablement" target="_blank" rel="noopener">CMS Interoperability Enablement</a></li></ul></div>
+  <div><h3>Technology</h3><ul><li><a href="https://www.vintasoftware.com/services/python-web-development" target="_blank" rel="noopener">Python</a></li><li><a href="https://www.vintasoftware.com/services/django-development" target="_blank" rel="noopener">Django</a></li><li><a href="https://www.vintasoftware.com/tech/react-native" target="_blank" rel="noopener">React Native</a></li><li><a href="https://www.vintasoftware.com/tech/fastapi" target="_blank" rel="noopener">FastAPI</a></li><li><a href="https://www.vintasoftware.com/tech/next-js" target="_blank" rel="noopener">Next.js</a></li></ul></div>
+  <div><h3>Company</h3><ul><li><a href="https://www.vintasoftware.com/about-us" target="_blank" rel="noopener">About us</a></li><li><a href="https://www.vintasoftware.com/careers" target="_blank" rel="noopener">Careers</a></li><li><a href="https://www.vintasoftware.com/blog" target="_blank" rel="noopener">Blog</a></li><li><a href="https://github.com/vintasoftware/" target="_blank" rel="noopener">Open source</a></li></ul></div>
+  <div><h3>Offices</h3><ul><li>1110 Brickell Ave, Suite 200, Miami, FL 33131</li><li>248 Rua do Brum, Recife, PE 50030-260</li></ul></div>
  </div>
  <div class="bot"><span>© 2026 Vinta Software Studio LLC. All rights reserved.</span><span><a href="https://www.vintasoftware.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> · <a href="https://clutch.co/profile/vinta-software" target="_blank" rel="noopener">4.9 on Clutch</a></span></div>
 </div></footer>
