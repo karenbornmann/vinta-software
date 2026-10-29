@@ -18,6 +18,16 @@ Lighthouse 12.8.2 CLI, default mobile and desktop presets (simulated throttling)
 
 Accessibility 98 / 95, Best practices 96. SEO 66 is expected: pages are intentionally `noindex` (duplicate of the live site).
 
+### After the final review round (T16), 29 Oct 2026
+Same CLI and conditions, mobile preset, 2 runs per page.
+
+| Page | Mobile perf. | Mobile LCP | Accessibility | Best practices | CLS |
+|---|---|---|---|---|---|
+| /work/ | 97 | 2.4 s | 100 | 96 | 0.000 |
+| /work/quilted-health/ | 92–93 | 3.2 s | 100 | 96 | 0.000 |
+
+Slow-network test (412 px mobile, 150 ms latency, 50 KB/s, 4× CPU throttling): CLS 0.000 on both pages.
+
 ## Conditions and limits — read before comparing
 - Different tool versions and environments (PSI remote vs. local CLI). The fair comparison is PageSpeed Insights on the Netlify URLs with the same 3-run protocol; record it here after deploy.
 - Locally, third-party requests (Vinta CDN logos/screens, YouTube thumbnail) were blocked by the sandbox network, so they are not counted: after-numbers are optimistic for those items. Netlify adds gzip/brotli, which the local server did not.

@@ -35,6 +35,7 @@ public/assets/fonts/     Inter 300/400/500/600, self-hosted (SIL OFL, license in
 public/404.html          Not-found page
 netlify.toml             Build, redirect and cache/robots headers
 docs/DESIGN-SYSTEM.md    Foundations and components used on both pages
+docs/DECISIONS.md        Design decisions, in Karen’s words
 docs/PERFORMANCE.md      Before/after measurements and conditions
 docs/ai-logs/            AI conversation logs (Log #1 Claude chat, Log #2 Claude Code)
 docs/preview/            The single-file review preview used for design decisions (with review toolbar)

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__vok)document.documentElement.classList.remove("js")},2500)</script>
 <title>Vinta · Work + Quilted Health · T10 preview</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -321,10 +322,11 @@ p{margin:0}
 .legacy svg{position:absolute;inset:-6%;width:112%;height:112%;z-index:3;pointer-events:none}
 .legacy line{stroke:#186DFF;stroke-width:1.5;opacity:.65;transition:all 1.4s var(--ease)}
 .decide{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
-.col{border-radius:var(--r-card);padding:26px;border:1px solid var(--line-200);background:var(--white);transition:opacity .4s,transform .4s var(--ease),box-shadow .4s}
+.col{border-radius:var(--r-card);padding:26px;border:1px solid var(--line-200);background:var(--white);transition:background .4s,color .4s,transform .4s var(--ease),box-shadow .4s}
 .col h3{font-size:22px;margin-bottom:10px}
 .col.rebuild{background:var(--tint-050);border-color:var(--tint-100)}
-.col.dim{opacity:.45}
+.col.dim{background:#F4F6FA;border-style:dashed}
+.col.dim h3,.col.dim p,.col.dim strong{color:var(--label-500)}
 .col.on{box-shadow:var(--sh-hover);transform:translateY(-3px)}
 .seg{display:inline-flex;border:1px solid var(--line-200);border-radius:999px;padding:4px;background:var(--white);margin-top:24px}
 .seg button{border:0;background:transparent;border-radius:999px;padding:8px 16px;font-size:14px;color:var(--ink-900);min-height:40px}
@@ -339,8 +341,8 @@ p{margin:0}
 .tl{list-style:none;margin:34px 0 0;padding:0 0 0 30px;display:grid;gap:20px;position:relative}
 .rail{position:absolute;left:8px;top:10px;bottom:10px;width:2px;background:rgba(255,255,255,.12);border-radius:2px}
 .rail i{display:block;width:100%;height:calc(var(--p,0)*100%);background:linear-gradient(#7FDBEA,#186DFF);border-radius:2px}
-.tl>li{display:grid;grid-template-columns:64px 1fr;gap:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:24px;opacity:.45;transform:translateX(10px);transition:opacity .6s,transform .6s var(--ease),border-color .6s}
-.tl>li.lit{opacity:1;transform:none;border-color:rgba(127,166,255,.55)}
+.tl>li{display:grid;grid-template-columns:64px 1fr;gap:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:24px;transform:translateX(10px);transition:background .6s,transform .6s var(--ease),border-color .6s}
+.tl>li.lit{transform:none;background:rgba(255,255,255,.1);border-color:rgba(127,166,255,.55)}
 .tl .num{font-size:34px;font-weight:300;color:var(--dark-accent);letter-spacing:-.03em;line-height:1}
 .tl h3{font-size:21px;font-weight:400;margin-bottom:8px}
 .tl .status{margin-bottom:10px}
@@ -662,6 +664,7 @@ p{margin:0}
 .gal-wrap{position:relative;margin-top:36px;perspective:none;padding:18px 0 30px}
 .gal{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;justify-content:flex-start;padding:10px 0;cursor:grab;user-select:none}
 .gal::-webkit-scrollbar{display:none}
+.gal>[role=listitem]{display:contents}
 .gal.drag{cursor:grabbing}.gal.drag .gcard{pointer-events:none}
 .gcard{transform:none!important;opacity:1;animation:none;flex:0 0 clamp(160px,14cqi,200px)}
 .gcard .frame-img{transition:transform .35s var(--ease),box-shadow .35s}
@@ -724,12 +727,127 @@ p{margin:0}
 
 @container (max-width:767px){.sel{width:100%;min-width:0}.sel select{flex:1;min-width:0;max-width:100%;text-overflow:ellipsis}.gal{scroll-padding:0 var(--gutter)}.gcard{scroll-snap-align:start}}
 
-@container (max-width:767px){.pill-top{font-size:12.5px;gap:6px;padding:7px 14px}.pill-top i{display:none}.pill-top b::after{content:" ·"}}
+@container (max-width:767px){.pill-top{font-size:12.5px;gap:4px 8px;padding:7px 14px}}
 
 /* ===== CLS fixes: reserve gallery space before JS renders the cards ===== */
 .gal{min-height:calc(clamp(160px,14cqi,200px)*1.25 + 20px);box-sizing:border-box}
 @container (max-width:767px){.gal{min-height:calc(100cqi*.46*1.25 + 20px)}}
 
+
+/* ===== T16 final review ===== */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html:not(.js) .reveal,html:not(.js) .tool,html:not(.js) .gchips span,html:not(.js) .cm li,html:not(.js) .sm,html:not(.js) .sm .ch span,html:not(.js) .iso,html:not(.js) .bbc-r{opacity:1!important;transform:none!important;scale:1!important;animation:none!important}
+.site :focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 5px #0040CC;border-radius:10px}
+.dark :focus-visible,.svc-panel :focus-visible,.cta3 .cta3-l :focus-visible,.str :focus-visible{box-shadow:0 0 0 3px #fff!important}
+/* 2 pill */
+.pill-top{gap:4px 10px}.pill-top i{display:none}
+.psep{color:#9DB0DA;font-weight:600}
+/* 3 sector label */
+.sector{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-600);background:var(--tint-050);border-radius:999px;padding:4px 10px;margin-bottom:14px}
+.ceo-c .sector{margin-bottom:10px}
+/* 4 services stepper on small screens */
+@container (max-width:767px){
+ .svc-panel{padding-left:20px;padding-right:20px}
+ .stepper{grid-template-columns:1fr;gap:6px;max-width:none;overflow:visible;margin:28px 0 6px}
+ .stepper::before{left:13px;right:auto;top:13px;bottom:13px;width:2px;height:auto}
+ .stepper .bar{display:none}
+ .step{flex-direction:row;text-align:left;gap:12px;min-height:44px;padding:0;font-size:13.5px}
+ .step .dot{flex:0 0 26px}
+}
+/* 5 shared secondary action button */
+.abtn,.rbtn{position:relative;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--tint-100);background:var(--tint-050);color:var(--blue-600);font-weight:500;font-size:14.5px;border-radius:999px;padding:7px 7px 7px 18px;min-height:44px;text-decoration:none;transition:background .3s,color .3s,border-color .3s}
+.abtn .ra,.rbtn .ra{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--blue-600);color:#fff;transition:transform .3s var(--ease),background .3s,color .3s}
+.abtn:hover,.abtn:focus-visible{background:var(--blue-600);border-color:var(--blue-600);color:#fff}
+.abtn:hover .ra,.abtn:focus-visible .ra{background:#fff;color:var(--blue-600);transform:translateX(3px)}
+.abtn.back{padding:7px 18px 7px 7px}.abtn.back:hover .ra{transform:translateX(-3px)}
+.abtn.dk{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff;margin-top:20px}
+.abtn.dk .ra{background:#fff;color:var(--blue-600)}
+.abtn.dk:hover,.abtn.dk:focus-visible{background:#fff;color:var(--ink-900)}
+.abtn.dk:hover .ra{background:var(--blue-600);color:#fff}
+.inline-cta{align-items:center;justify-content:space-between}
+.sm .abtn{margin-top:6px}
+/* 6/8 booking CTA */
+.cta3{position:relative;border-radius:var(--r-band);margin-top:clamp(60px,8cqi,110px);padding:clamp(32px,5cqi,64px);display:grid;grid-template-columns:6fr 5fr;gap:clamp(28px,4cqi,56px);align-items:center;color:#fff;background:radial-gradient(45% 70% at 95% 100%,rgba(8,147,179,.55),transparent 70%),radial-gradient(40% 60% at 0% 0%,rgba(255,255,255,.12),transparent 70%),linear-gradient(120deg,#0040CC 0%,#0050FF 55%,#2A7BFF 100%);overflow:hidden}
+.cta3::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:36px 36px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 70%);mask-image:linear-gradient(90deg,transparent,#000 70%);pointer-events:none}
+.cta3>*{position:relative;z-index:1}
+.cta3 .eyebrow{color:var(--tint-100)}
+.cta3 .h2{color:#fff;font-size:clamp(36px,4.4cqi,60px)}
+.cy2{color:#BDF3FA}
+.cta3-sub{margin-top:18px;font-size:19px}.cta3-sub strong{color:#fff;font-weight:500}
+.cta3-l p{color:var(--tint-100);font-size:17px;margin-top:8px;max-width:42ch}
+.cta3-cal{display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 16px 6px 6px;font-size:14px;color:#fff;flex-wrap:wrap}
+.cal-ic{width:36px;height:36px;border-radius:50%;background:#fff;color:var(--blue-600);display:grid;place-items:center}
+.cal-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.6)}
+.cta3-card{background:#fff;color:var(--ink-700);border-radius:22px;padding:clamp(22px,3cqi,32px);box-shadow:0 40px 70px -30px rgba(5,8,66,.6)}
+.cta3-card .t{font-weight:600;color:var(--ink-900);font-size:18px}
+.cta3-card ol{list-style:none;margin:18px 0 22px;padding:0;display:grid;gap:12px}
+.cta3-card li{display:grid;grid-template-columns:40px 1fr;align-items:center;gap:10px;font-size:15px;color:var(--ink-900)}
+.cta3-card li b{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--tint-050);color:var(--blue-600);font-size:12.5px}
+.cta3-btn{width:100%;justify-content:center;min-height:54px;font-size:17px;font-weight:600;border-radius:14px;box-shadow:0 16px 30px -16px rgba(0,80,255,.8)}
+.cta3-note{margin-top:10px;font-size:12.5px;color:var(--label-500);text-align:center}
+@container (max-width:1023px){.cta3{grid-template-columns:1fr}}
+/* 7 Quilted services motion */
+.js .svcmap::before{transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease)}
+.js .svcmap.in::before{transform:none}
+.js .svcmap .sm{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease),box-shadow .35s}
+.js .svcmap.in .sm{opacity:1;transform:none}
+.js .svcmap.in .sm:nth-child(2){transition-delay:.15s}.js .svcmap.in .sm:nth-child(3){transition-delay:.3s}
+.js .svcmap .nd{scale:.4;opacity:0;transition:scale .6s var(--ease) .5s,opacity .4s .5s}
+.js .svcmap.in .nd{scale:1;opacity:1}
+.svcmap .sm .ch span:nth-child(1){transition-delay:.5s}.svcmap.in .sm .ch span:nth-child(2){transition-delay:.65s}.svcmap.in .sm .ch span:nth-child(3){transition-delay:.8s}
+.svcmap .sm:hover{transform:translateY(-6px)!important;box-shadow:var(--sh-hover)}
+/* 10-12 cards */
+.card .bd{display:flex;flex-direction:column;gap:10px}
+.card .status{flex-direction:column;align-items:flex-start;gap:6px}
+.card .rbtn{margin-top:auto;align-self:flex-start}
+.card .bd h3{margin-bottom:2px}
+/* 13 gallery */
+.gcard .tg{top:auto;bottom:46px;left:12px;max-width:calc(100% - 24px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gal-wrap .garr{display:none}
+.gnav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:6px}
+.gnav .garr{position:static;translate:none;display:grid}
+@container (max-width:767px){.gnav .garr{display:grid}.gnav .small{font-size:12.5px;text-align:center}}
+/* 14/15 challenge pill */
+.chbtn{min-height:44px}.chbtn b{font-weight:600;color:var(--blue-600)}
+.chbtn.set{border-color:var(--blue-600);background:var(--tint-050)}
+.chbtn[aria-expanded=true] .cv2{display:inline-block;transform:rotate(180deg)}
+.chrow{margin-top:14px;padding:12px;background:#fff;border:1px solid var(--line-200);border-radius:16px}
+.tag-note2{font-size:12.5px;color:var(--label-500);margin:10px 0 0}
+.chips.sub .chip{min-height:44px}
+/* 16 Building Blocks tabs */
+.bb-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.bb-tabs .sep{display:none}
+.bbt{justify-content:flex-start;min-height:48px;white-space:normal;text-align:left;line-height:1.2}
+@container (max-width:1023px){.bb-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.bbt{flex:0 0 auto;scroll-snap-align:start;white-space:nowrap}}
+/* 17 planned item */
+.ck.pl{background:var(--plan-bg);color:var(--plan-fg);border:1px dashed #9DB0DA}
+.bbc-r .st{font-size:11.5px;padding:1px 7px}
+/* 19 At a glance band */
+.glance3{margin:28px 0 0;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(238,243,255,.92));border:1px solid #fff;border-radius:22px;padding:22px 26px;box-shadow:0 24px 50px -40px rgba(5,8,66,.45)}
+.glance3 .g3h{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--label-500);margin:0 0 14px}
+.glance3 dl{margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px 26px}
+.glance3 dt{font-size:12.5px;font-weight:600;color:var(--blue-600)}
+.glance3 dd{margin:3px 0 0;color:var(--ink-900);font-size:15px;line-height:1.4}
+@container (max-width:1023px){.glance3 dl{grid-template-columns:1fr 1fr}}
+@container (max-width:767px){.glance3{padding:18px}.glance3 dl{grid-template-columns:1fr}}
+/* 20 neutral facts */
+.neu{color:var(--ink-900)}
+/* 21 one emphasis in the Quilted quote */
+.qbig .hl{font-weight:inherit}
+/* 22 Why Medplum text always visible, small icons */
+.wcard{min-height:0;padding:22px;cursor:default}
+.wcard .wart{order:-1;width:48px;height:48px;margin:0 0 14px;border-radius:14px;flex:0 0 auto}
+.wcard .wic{position:static;translate:none;font-size:22px}
+.wcard .wtx{position:static;opacity:1;transform:none;color:var(--ink-700);padding:10px 0 0;left:auto;right:auto;bottom:auto}
+.wcard:hover .wart,.wcard:focus-visible .wart,.wcard.on .wart{height:48px}
+.wcard:hover .wic,.wcard:focus-visible .wic,.wcard.on .wic{transform:none}
+/* touch targets */
+.bbt,.seg2 button,.seg button{min-height:44px}
+
+/* T16: reduced motion shows final states; 44px targets */
+@media (prefers-reduced-motion:reduce){.js .svcmap .sm,.js .svcmap .nd{opacity:1!important;transform:none!important;scale:1!important}.js .svcmap::before{transform:none!important}}
+.site.rm .svcmap .sm,.site.rm .svcmap .nd{opacity:1!important;transform:none!important;scale:1!important}
+.hdr .btn{min-height:44px}.ba-btns button{min-height:44px}
 /* reduced motion */
 @media (prefers-reduced-motion:reduce){.site *,.site *::before,.site *::after{animation:none!important;transition:none!important}}
 .site.rm *,.site.rm *::before,.site.rm *::after,.site.paused *,.site.paused *::before{animation-play-state:paused!important}
@@ -811,12 +929,13 @@ p{margin:0}
 <main id="page-work" class="page">
  <section class="w-hero2">
   <div class="wrap hero-c reveal">
-   <span class="pill-top" data-n="1"><b>32 projects</b><i></i>11 in healthcare<i></i>21 across other industries</span>
-   <h1 class="display">Find the work closest to <span class="grad">your care model</span></h1>
-   <p class="lead">We are a <strong>product and engineering partner for healthcare</strong>. Explore projects by <strong>care specialty</strong>, by <strong>industry</strong> or by the <strong>challenge we solved</strong>.</p>
+   <span class="pill-top" data-n="1"><b>32 projects</b><span class="psep" aria-hidden="true">·</span><span class="sr">, </span><span>11 in healthcare</span><span class="psep" aria-hidden="true">·</span><span class="sr">, </span><span>21 across other industries</span></span>
+   <h1 class="display">Software shaped around how you work. <span class="grad">See what we’ve built.</span></h1>
+   <p class="lead">We are a <strong>product and engineering partner</strong>. Explore projects by <strong>healthcare specialty</strong>, by <strong>industry</strong> or by the <strong>challenge we solved</strong>.</p>
      </div>
-  <div class="gal-wrap" data-n="2"><button class="garr l" id="gPrev" type="button" aria-label="Scroll projects left">‹</button><div class="gal" id="gal" role="list" aria-label="All 32 projects. Drag or use the arrows to browse."></div><button class="garr r" id="gNext" type="button" aria-label="Scroll projects right">›</button></div>
-  <div class="wrap" style="text-align:center"><p class="small muted">Drag or use the arrows to browse all 32 projects. <button class="link pause" id="pauseB" type="button" hidden>Pause motion</button></p></div>
+  <div class="gal-wrap" data-n="2"><div class="gal" id="gal" role="list" aria-label="All 32 projects. Drag or use the arrows to browse."></div></div>
+  <div class="gnav"><button class="garr l" id="gPrev" type="button" aria-label="Scroll projects left">‹</button><span class="small muted">Drag or use the arrows to browse all 32 projects</span><button class="garr r" id="gNext" type="button" aria-label="Scroll projects right">›</button></div>
+  <button class="link pause" id="pauseB" type="button" hidden>Pause motion</button>
  </section>
 
  <section class="sec feat-sec"><div class="wrap feat2">
@@ -838,12 +957,14 @@ p{margin:0}
  </div></section>
 
  <section class="sec" id="explore" style="padding-top:clamp(28px,4cqi,56px);background:linear-gradient(#FDFDFE,#F4F7FD 30%,#FDFDFE)"><div class="wrap">
-  <div class="ex-head"><div><span class="eyebrow">All projects</span><h2 class="h2">Explore the work</h2></div><p class="small muted">Tags are our own classification of published projects.</p></div>
+  <div class="ex-head"><div><span class="eyebrow">All projects</span><h2 class="h2">Explore the work</h2></div></div>
   <div class="fbar" id="filters" data-n="4">
    <div class="seg2" role="group" aria-label="Project group" id="grp"></div>
-   <label class="sel"><span>Challenge</span><select id="chSel" aria-label="Filter by challenge"></select></label>
+   <button type="button" class="chip chbtn" id="chBtn" aria-expanded="false" aria-controls="chRow">Challenge: <b id="chNow2">Any</b> <span class="cv2" aria-hidden="true">▾</span></button>
   </div>
+  <div class="chips sub chrow" id="chRow" role="group" aria-label="Challenge" hidden></div>
   <div class="chips sub" id="sub" role="group" aria-label="Refine"></div>
+  <p class="tag-note2">Specialty, industry and challenge tags are our own classification of published projects.</p>
   <div class="slim" id="slim"><span id="slimTxt"></span><button class="link small" id="slimEdit" type="button">Edit filters</button></div>
   <div class="res"><span id="count" aria-live="polite"></span><button class="link small" id="clear" type="button" hidden>Clear filters</button></div>
   <div class="grid3" id="grid"></div>
@@ -864,19 +985,20 @@ p{margin:0}
    <div class="bb-head"><span class="eyebrow">Building Blocks</span><h2 class="h2">The experience behind <span class="grad">our Building Blocks</span></h2><p class="lead"><strong>Building Blocks</strong> are reusable healthcare software we start from today. Pick a workflow area to see <strong>where we already built this kind of work</strong> for clients, from scratch.</p></div>
    <div class="bb-tabs" role="tablist" aria-label="Workflow areas" id="bbTabs"></div>
    <div class="bb-body" id="bbBody"></div>
-   <p class="bb-note"><b>Good to know:</b> these past projects covered the same workflow areas, but were <strong>built before, and without, the current Building Blocks</strong>. <a class="link" href="https://www.vintasoftware.com/building-blocks" target="_blank" rel="noopener">See our Building Blocks</a></p>
+   <p class="bb-note"><b>Good to know:</b> these past projects covered the same workflow areas, but were <strong>built before, and without, the current Building Blocks</strong>.</p>
+   <p style="margin-top:18px"><a class="abtn" href="https://www.vintasoftware.com/building-blocks" target="_blank" rel="noopener">See our Building Blocks <span class="ra" aria-hidden="true">→</span></a></p>
   </div>
  </div></section>
 
  <section class="sec proof2" id="proof"><div class="wrap">
   <div class="pq" data-n="7">
-   <div><span class="eyebrow">— Client success stories</span><h2 class="h2">What <span class="grad">healthcare clients</span> say</h2><p class="lead">Teams we have worked with, in their own words.</p>
+   <div><span class="eyebrow">— Client success stories</span><h2 class="h2">What our <span class="grad">clients</span> say</h2><p class="lead">Healthcare teams first, then partners from other industries, in their own words.</p>
     <div class="pq-nav"><button type="button" id="qPrev" aria-label="Previous quote">←</button><button type="button" id="qNext" aria-label="Next quote">→</button><span id="qNum"></span></div><div class="dots" id="qDots"></div></div>
    <figure class="qcard" id="qCard" aria-live="polite"></figure>
   </div>
   <div class="ceo" data-n="8">
-   <figure class="ceo-c reveal"><img src="/assets/img/7eabb5268c.webp" alt="Marko Gargenta" width="140" height="140" loading="lazy"><div><blockquote>“Vinta <span class="hl">proactively communicates</span> with me so there are <span class="hl">no surprises</span>.”</blockquote><figcaption>Marko Gargenta<small>CEO at PlusPlus</small></figcaption></div></figure>
-   <figure class="ceo-c reveal"><img src="/assets/img/643755e439.webp" alt="Nehal Madhani" width="140" height="140" loading="lazy"><div><blockquote>“Vinta can be trusted to <span class="hl">plan and execute difficult projects</span>.”</blockquote><figcaption>Nehal Madhani<small>CEO at Alt Legal</small></figcaption></div></figure>
+   <figure class="ceo-c reveal"><img src="/assets/img/7eabb5268c.webp" alt="Marko Gargenta" width="140" height="140" loading="lazy"><div><span class="sector">Edtech · PlusPlus</span><blockquote>“Vinta <span class="hl">proactively communicates</span> with me so there are <span class="hl">no surprises</span>.”</blockquote><figcaption>Marko Gargenta<small>CEO at PlusPlus</small></figcaption></div></figure>
+   <figure class="ceo-c reveal"><img src="/assets/img/643755e439.webp" alt="Nehal Madhani" width="140" height="140" loading="lazy"><div><span class="sector">Legaltech · Alt Legal</span><blockquote>“Vinta can be trusted to <span class="hl">plan and execute difficult projects</span>.”</blockquote><figcaption>Nehal Madhani<small>CEO at Alt Legal</small></figcaption></div></figure>
   </div>
   <div class="stats2" data-n="9">
    <div class="s2"><span class="si">★</span><div class="big"><span class="grad">4.9</span><small>/5</small></div><p>average rating on Clutch · <a class="link" href="https://clutch.co/profile/vinta-software#reviews" target="_blank" rel="noopener">See reviews</a></p></div>
@@ -886,9 +1008,9 @@ p{margin:0}
   </div>
  </div></section>
 
- <section class="wrap"><div class="cta2 reveal" data-n="10">
-  <div class="cta2-l"><span class="eyebrow">Let’s talk</span><h2 class="h2">Tell us about <br>your care model</h2><p>We will point you to the work closest to yours and talk through what you need to build.</p></div>
-  <div class="cta2-card"><p class="t">What happens next</p><ol><li><b>01</b>Tell us about your care model and goals</li><li><b>02</b>We point you to the closest work</li><li><b>03</b>We talk through what you need to build</li></ol><a class="btn btn-p" href="https://www.vintasoftware.com/contact" target="_blank" rel="noopener">Contact our team <span class="arr">→</span></a></div>
+ <section class="wrap"><div class="cta3 reveal" data-n="10">
+  <div class="cta3-l"><span class="eyebrow">Let’s talk</span><h2 class="h2">Book a <span class="cy2">30-minute call</span></h2><p class="cta3-sub"><strong>Tell us about your care model.</strong></p><p>We will point you to the work closest to yours and talk through what you need to build.</p><div class="cta3-cal" aria-hidden="true"><span class="cal-ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span>30 min</span><span class="cal-dot"></span><span>A conversation with our team</span></div></div>
+  <div class="cta3-card"><p class="t">What happens next</p><ol><li><b>01</b>Tell us about your care model and goals</li><li><b>02</b>We point you to the closest work</li><li><b>03</b>We talk through what you need to build</li></ol><a class="btn btn-p cta3-btn" href="https://www.vintasoftware.com/contact" target="_blank" rel="noopener">Let’s talk <span class="arr">→</span></a><p class="cta3-note">Opens our contact page to book the call.</p></div>
  </div></section>
 </main>
 
@@ -913,15 +1035,21 @@ p{margin:0}
   <div class="stats2 qstats" data-n="12">
    <div class="s2"><span class="si">◷</span><div class="big"><span class="grad" data-count="14">14</span><small>+ years</small></div><p>of continuous development in the <strong>legacy EHR</strong></p></div>
    <div class="s2"><span class="si">⚡</span><div class="big"><span class="grad">1</span><small> month</small></div><p>to a <strong>working proof of concept</strong>, ahead of schedule</p></div>
-   <div class="s2"><span class="si">◆</span><div class="big"><span class="grad" style="font-size:.78em">Medplum</span></div><p>the new <strong>FHIR-native</strong> foundation</p></div>
-   <div class="s2"><span class="si">↻</span><div class="big"><span class="grad" style="font-size:.66em">In progress</span></div><p><strong>feature parity and migration</strong>, at the stage described</p></div>
+   <div class="s2"><span class="si">◆</span><div class="big"><span class="neu" style="font-size:.78em">Medplum</span></div><p>the new <strong>FHIR-native</strong> foundation</p></div>
+   <div class="s2"><span class="si">↻</span><div class="big"><span class="neu" style="font-size:.66em">In progress</span></div><p><strong>feature parity and migration</strong>, at the stage described</p></div>
   </div>
-  <div class="glance2" id="glance" data-n="13">
-   <h2 class="eyebrow" style="grid-column:1/-1;text-align:center;margin:0 0 6px">At a glance</h2>
-   <div class="gside l"><div class="gh"><span class="gi">♥</span><div><b>The client</b><small>Who Quilted is</small></div></div><div class="gchips"><span>Midwife-led pregnancy care</span><span>Gynecological care</span><span>Spokane, WA</span><span>Partner hospitals</span><span><strong>Maternity Neighborhood</strong> EHR</span><span>14+ years of development</span></div></div>
-   <div class="gmid"><span class="gline"></span><span class="gnode">Q</span><small>Quilted Health</small><span class="gline"></span></div>
-   <div class="gside r"><div class="gh"><span class="gi v">V</span><div><b>Vinta’s role</b><small>What we did</small></div></div><div class="gchips"><span>Engineering</span><span>Product management</span><span>Proof of concept → production</span><span>Built on <strong>Medplum</strong></span><span>FHIR-native</span><span>Migration in progress</span></div></div>
-  </div>
+  <section class="glance3" aria-labelledby="g3h" data-n="13">
+   <h2 class="g3h" id="g3h">At a glance</h2>
+   <dl id="glance">
+   <div><dt>Client</dt><dd>Quilted Health</dd></div>
+   <div><dt>Care model</dt><dd>Midwife-led pregnancy and gynecological care</dd></div>
+   <div><dt>Location</dt><dd>Spokane, WA</dd></div>
+   <div><dt>Starting point</dt><dd>Maternity Neighborhood, an EHR with 14+ years of development</dd></div>
+   <div><dt>New foundation</dt><dd>Medplum, a FHIR-native platform</dd></div>
+   <div><dt>Vinta’s role</dt><dd>Engineering and product management, from proof of concept to production build</dd></div>
+   <div><dt>Stage in this case</dt><dd>Production build and migration in progress</dd></div>
+   </dl>
+  </section>
   <details class="toc-m"><summary>On this page</summary><div id="tocM"></div></details>
  </div></section>
 
@@ -930,7 +1058,7 @@ p{margin:0}
   <h2 class="h2">Hear it from <span class="grad">Quilted Health</span></h2>
   <div class="video">
    <div class="player" id="ytP" data-n="14"><img src="https://i.ytimg.com/vi/8RU8aiwxAP0/hqdefault.jpg" alt="" loading="lazy"><button class="play" type="button" id="ytB"><i></i>Play the testimonial</button></div>
-   <figure style="margin:0"><blockquote class="qbig">“One of the <span class="hl">most responsive agencies</span> I have ever worked with. They have <span class="hl">strong ownership</span> and are <strong>proactive in finding ways to improve processes</strong> and make work more efficient.”</blockquote><figcaption class="who" style="margin-top:22px"><span class="av" aria-hidden="true">CM</span><span><b>Carlos Montes</b>Quilted Health</span></figcaption></figure>
+   <figure style="margin:0"><blockquote class="qbig">“One of the <span class="hl">most responsive agencies</span> I have ever worked with. They have <span class="hl">strong ownership</span> and are <span class="hl">proactive in finding ways to improve processes</span> and make work more efficient.”</blockquote><figcaption class="who" style="margin-top:22px"><span class="av" aria-hidden="true">CM</span><span><b>Carlos Montes</b>Quilted Health</span></figcaption></figure>
   </div>
   <p class="cap">Quilted Health’s Testimonial – Legacy EHR meets modern healthcare technology. The video loads from YouTube when you press play. <a class="link" href="https://www.youtube.com/watch?v=8RU8aiwxAP0" target="_blank" rel="noopener">Open on YouTube</a></p>
  </div></section>
@@ -981,7 +1109,7 @@ p{margin:0}
      <button type="button" class="wcard"><span class="wk">03 · Speed</span><b>Headless, with ready components</b><span class="wart"><span class="wic">▦</span></span><span class="wtx">The data layer is separate from the screens, and a Mantine-based library speeds up interfaces around each workflow.</span></button>
     </div>
     <p class="p muted">Starting over was a significant investment, and it needed <strong>stakeholder support</strong>.</p>
-    <div class="inline-cta">Weighing a rebuild of your EHR? <a class="link" href="https://www.vintasoftware.com/contact" target="_blank" rel="noopener">Talk to us about your care model</a></div>
+    <div class="inline-cta"><span>Weighing a rebuild of your EHR?</span> <a class="abtn" href="https://www.vintasoftware.com/contact" target="_blank" rel="noopener">Talk to us about your care model <span class="ra" aria-hidden="true">→</span></a></div>
    </section>
 
    <section class="dark" id="delivery" data-toc="From proof to production">
@@ -1047,11 +1175,11 @@ p{margin:0}
   </div>
  </div>
 
- <section class="wrap"><div class="cta2 reveal">
-  <div class="cta2-l"><span class="eyebrow">Let’s talk</span><h2 class="h2">Planning a rebuild <br>or migration?</h2><p>Let’s talk through your care model and what your team needs to build next.</p></div>
-  <div class="cta2-card"><p class="t">What happens next</p><ol><li><b>01</b>Tell us about your system and care model</li><li><b>02</b>We point you to the closest work</li><li><b>03</b>We talk through what to rebuild, and when</li></ol><a class="btn btn-p" href="https://www.vintasoftware.com/contact" target="_blank" rel="noopener">Contact our team <span class="arr">→</span></a></div>
+ <section class="wrap"><div class="cta3 reveal">
+  <div class="cta3-l"><span class="eyebrow">Let’s talk</span><h2 class="h2">Book a <span class="cy2">30-minute call</span></h2><p class="cta3-sub"><strong>Planning a rebuild or migration?</strong></p><p>Let’s talk through your care model and what your team needs to build next.</p><div class="cta3-cal" aria-hidden="true"><span class="cal-ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span>30 min</span><span class="cal-dot"></span><span>A conversation with our team</span></div></div>
+  <div class="cta3-card"><p class="t">What happens next</p><ol><li><b>01</b>Tell us about your system and care model</li><li><b>02</b>We point you to the closest work</li><li><b>03</b>We talk through what to rebuild, and when</li></ol><a class="btn btn-p cta3-btn" href="https://www.vintasoftware.com/contact" target="_blank" rel="noopener">Let’s talk <span class="arr">→</span></a><p class="cta3-note">Opens our contact page to book the call.</p></div>
  </div>
- <p class="back"><a class="link" href="#work">← Back to all work</a></p></section>
+ <p class="back"><a class="abtn back" href="#work"><span class="ra" aria-hidden="true">←</span> Back to all work</a></p></section>
 </main>
 
 <footer class="ftr"><div class="wrap">
@@ -1142,7 +1270,9 @@ function goTo(sel){const el=$(sel);if(!el)return;if(frameMode)vp.scrollTo({top:e
 
 /* hero gallery: all 32, draggable, infinite */
 const GL=[...HC,...OT];
-const gItem=(p,i)=>`<a class="gcard" role="listitem" href="${p.href||CASE(p.slug)}" ${p.href?'':'target="_blank" rel="noopener"'} draggable="false" style="--i:${i%9}" aria-label="${esc(p.c)}: ${esc(p.t)}"><div style="position:relative">${cover(p.slug,p.c,'r45',i<8?false:true)}<span class="tg">${esc(p.hc?p.tag.split(' · ')[0].replace(' (related)',''):p.ind)}</span></div></a>`;
+const SHORT={'Care navigation & clinic operations':'Care navigation','Behavioral & mental health':'Behavioral health','Chronic & metabolic care':'Chronic care','Maternal & prenatal care':'Maternal care','Oncology & cancer care':'Oncology','Pediatric & family care':'Pediatrics','Healthcare platform':'Health platform'};
+const gTag=p=>p.hc?(SHORT[p.tag.split(' · ')[0].replace(' (related)','')]||p.tag.split(' · ')[0]):p.ind;
+const gItem=(p,i)=>`<div role="listitem"><a class="gcard" href="${p.href||CASE(p.slug)}" ${p.href?'':'target="_blank" rel="noopener"'} draggable="false" style="--i:${i%9}"><div style="position:relative">${cover(p.slug,p.c,'r45',i<8?false:true)}<span class="tg">${esc(gTag(p))}</span></div><span class="sr">: ${esc(p.t)}</span></a></div>`;
 const gal=$('#gal');gal.innerHTML=GL.map(gItem).join('');
 let gDrag=null,gMoved=false,gHover=false;
 const half=()=>gal.scrollWidth/2;
@@ -1165,19 +1295,21 @@ const mSub=(p,s)=>!s||(p.hc?(p.s.includes(s)||(p.rel||[]).includes(s)):p.ind===s
 const isRel=(p,s)=>p.hc&&s&&!p.s.includes(s)&&(p.rel||[]).includes(s);
 const mCh=(p,c)=>!c||p.ch.includes(c);
 const results=(g=state.grp,s=state.sub,c=state.ch)=>GRP[g][1].filter(p=>mSub(p,s)&&mCh(p,c)).sort((a,b)=>isRel(a,s)-isRel(b,s));
-function card(p,k){const tag=p.hc?p.tag.split(' · ')[0].replace(' (related)',''):p.ind;return `<article class="card anim" style="--k:${k%9}">${cover(p.slug,p.c,'r1610')}<div class="bd">${isRel(p,state.sub)?'<span class="relabel">Related by process</span>':''}<span class="eyebrow">${p.hc?'Healthcare · ':''}${esc(tag)}</span><h3><span class="sr">${esc(p.c)}: </span>${esc(p.t)}</h3>${p.hc&&p.st.length?`<div class="status">${p.st.slice(0,2).map(([c,t])=>`<span class="st ${c}">${t}</span>`).join('')}</div>`:''}<a class="rbtn stretch" href="${p.href||CASE(p.slug)}" ${p.href?'':'target="_blank" rel="noopener"'} aria-label="Read the ${esc(p.c)} case">Read the case <span class="ra" aria-hidden="true">→</span></a></div></article>`}
+function card(p,k){const tag=p.hc?p.tag.split(' · ')[0].replace(' (related)',''):p.ind;return `<article class="card anim" style="--k:${k%9}">${cover(p.slug,p.c,'r1610')}<div class="bd">${isRel(p,state.sub)?'<span class="relabel">Related by process</span>':''}<span class="eyebrow">${esc(tag)}</span><h3><span class="sr">${esc(p.c)}: </span>${esc(p.t)}</h3>${p.hc&&p.st.length?`<div class="status">${p.st.slice(0,2).map(([c,t])=>`<span class="st ${c}">${t}</span>`).join('')}</div>`:''}<a class="rbtn stretch" href="${p.href||CASE(p.slug)}" ${p.href?'':'target="_blank" rel="noopener"'}>Read the case<span class="sr">: ${esc(p.c)}</span> <span class="ra" aria-hidden="true">→</span></a></div></article>`}
 function apply(push){
  $('#grp').innerHTML=Object.entries(GRP).map(([k,[n]])=>`<button type="button" data-k="${k}" aria-pressed="${state.grp===k}">${n} <span class="n">${results(k,null,state.ch).length}</span></button>`).join('');
  $$('#grp button').forEach(b=>b.onclick=()=>{state.grp=b.dataset.k;state.sub=null;state.more=false;apply(true)});
  const subs=state.grp==='hc'?Object.entries(SPEC):state.grp==='ot'?IND.map(n=>[n,n]):[];
  $('#sub').innerHTML=subs.length?[[null,state.grp==='hc'?'All specialties':'All industries'],...subs].map(([k,n])=>{const c=results(state.grp,k,state.ch).length;const on=state.sub===k;return `<button type="button" class="chip${!c&&!on?' zero':''}" aria-pressed="${on}" data-k="${k||''}">${esc(n)} <span class="n">${c}</span></button>`}).join(''):`<span class="small muted">Healthcare projects first. Choose <b>Healthcare</b> or <b>Other industries</b> to refine by specialty or industry.</span>`;
  $$('#sub .chip').forEach(b=>b.onclick=()=>{state.sub=b.dataset.k||null;state.more=false;apply(true)});
- $('#chSel').innerHTML=[['','Any challenge'],...Object.entries(CHAL)].map(([k,n])=>`<option value="${k}" ${state.ch===k||(!k&&!state.ch)?'selected':''}>${n}${k?' ('+results(state.grp,state.sub,k).length+')':''}</option>`).join('');
+ $('#chRow').innerHTML=[['','Any challenge'],...Object.entries(CHAL)].map(([k,n])=>{const c=results(state.grp,state.sub,k||null).length;const on=(state.ch||'')===k;return `<button type="button" class="chip${!c&&!on?' zero':''}" aria-pressed="${on}" data-k="${k}">${esc(n)} <span class="n">${c}</span></button>`}).join('');
+ $$('#chRow .chip').forEach(b=>b.onclick=()=>{state.ch=b.dataset.k||null;state.more=false;apply(true)});
+ $('#chNow2').textContent=state.ch?CHAL[state.ch]:'Any';$('#chBtn').classList.toggle('set',!!state.ch);
  const r=results();const lim=state.more?r.length:9;
  $('#grid').innerHTML=r.slice(0,lim).map(card).join('');
  const mb=$('#moreB');mb.hidden=r.length<=9;mb.textContent=state.more?'Show fewer':`Show more projects (${r.length-9})`;mb.setAttribute('aria-expanded',String(state.more));
  const lbl=[GRP[state.grp][0],state.sub&&(SPEC[state.sub]||state.sub),state.ch&&CHAL[state.ch]].filter(Boolean).join(' · ');
- $('#count').textContent=`Showing ${r.length} project${r.length===1?'':'s'} · ${lbl}`;
+ $('#count').textContent=(!state.more&&r.length>9?`Showing 9 of ${r.length} projects`:`Showing ${r.length} project${r.length===1?'':'s'}`)+` · ${lbl}`;
  $('#clear').hidden=!(state.grp!=='all'||state.sub||state.ch);
  $('#slimTxt').textContent=`${r.length} projects · ${lbl}`;
  $('#emptyBox').innerHTML=r.length?'':`<div class="empty"><h3>No published project matches these filters</h3><p>Try a different challenge or see every project in this group.</p><div class="row"><button class="btn btn-s" type="button" id="eAny">Any challenge</button></div><a class="link" href="https://www.vintasoftware.com/contact" target="_blank" rel="noopener">Tell us about your project</a></div>`;
@@ -1185,7 +1317,7 @@ function apply(push){
  if(push){const q=new URLSearchParams();if(state.grp!=='all')q.set('group',state.grp);if(state.sub)q.set('filter',state.sub);if(state.ch)q.set('challenge',state.ch);history.replaceState(null,'','#work'+(q.toString()?'?'+q:''))}
 }
 function readURL(){const h=location.hash;const i=h.indexOf('?');const q=new URLSearchParams(i>-1?h.slice(i+1):'');state.grp=GRP[q.get('group')]?q.get('group'):'all';const f=q.get('filter');state.sub=(state.grp==='hc'&&SPEC[f])||(state.grp==='ot'&&IND.includes(f))?f:null;state.ch=CHAL[q.get('challenge')]?q.get('challenge'):null;apply(false)}
-$('#chSel').onchange=e=>{state.ch=e.target.value||null;state.more=false;apply(true)};
+$('#chBtn').onclick=()=>{const r=$('#chRow');r.hidden=!r.hidden;$('#chBtn').setAttribute('aria-expanded',String(!r.hidden))};
 $('#clear').onclick=()=>{Object.assign(state,{grp:'all',sub:null,ch:null,more:false});apply(true)};
 $('#moreB').onclick=()=>{state.more=!state.more;apply(false);if(!state.more)goTo('#explore')};
 $('#slimEdit').onclick=()=>goTo('#filters');
@@ -1196,7 +1328,7 @@ let sv=0,svT=null,svHold=false;
 $('#steps').innerHTML='<span class="bar" id="svBar"></span>'+SVC.map((s,i)=>`<button class="step" role="tab" type="button" data-i="${i}" aria-selected="false"><span class="dot">${i+1}</span><span>0${i+1} · ${s.t.replace('Healthcare ','')}</span></button>`).join('');
 function stack(n,c){let g='';for(let i=0;i<n;i++){const y=200-i*34;g+=`<g class="layer${i===n-1?' top':''}" style="--i:${i===n-1?1:0}"><path d="M170 ${y-40} L290 ${y} L170 ${y+40} L50 ${y}Z" fill="${i===n-1?c:'rgba(127,166,255,.18)'}" stroke="${c}" stroke-width="1.5"/>${i===n-1?`<path d="M120 ${y-6}h70M120 ${y+6}h100M120 ${y+18}h50" stroke="#050842" stroke-width="5" stroke-linecap="round" opacity=".55"/>`:''}</g>`}return `<svg viewBox="0 0 340 280" aria-hidden="true">${g}</svg>`}
 function showSvc(i){sv=i;const n=i+1;const s=SVC[i];$$('#steps .step').forEach((b,k)=>{b.setAttribute('aria-selected',String(k===i));b.classList.toggle('done',k<i);b.tabIndex=k===i?0:-1});$('#svBar').parentNode.style.setProperty('--p',i/3);
- $('#svcStage').innerHTML=`<div class="ill">${stack(n,ILL[i][1])}</div><div class="svc-copy"><span class="badge2">SERVICE 0${i+1}</span><h3>${s.t}</h3><p>${s.d}</p><div class="box"><b>${s.rwl?'Related experience: new product builds':'Related work, by our own classification'}</b>${s.rw.map(n=>`<span>${n}</span>`).join('')}</div><a class="link" href="${s.h}" target="_blank" rel="noopener">${s.l} →</a></div>`}
+ $('#svcStage').innerHTML=`<div class="ill">${stack(n,ILL[i][1])}</div><div class="svc-copy"><span class="badge2">SERVICE 0${i+1}</span><h3>${s.t}</h3><p>${s.d}</p><div class="box"><b>${s.rwl?'Related experience: new product builds':'Related work, by our own classification'}</b>${s.rw.map(n=>`<span>${n}</span>`).join('')}</div><a class="abtn dk" href="${s.h}" target="_blank" rel="noopener">${s.l} <span class="ra" aria-hidden="true">→</span></a></div>`}
 $$('#steps .step').forEach(b=>b.onclick=()=>{svHold=true;showSvc(+b.dataset.i)});
 $('#steps').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){svHold=true;showSvc((sv+(e.key==='ArrowRight'?1:3))%4);$$('#steps .step')[sv].focus()}});
 showSvc(0);
@@ -1205,7 +1337,7 @@ let svGo=false;new IntersectionObserver(([e])=>{if(e.isIntersecting&&!svGo){svGo
 setInterval(()=>{if(svGo&&!svHold&&!rmOn()&&!site.classList.contains('paused')&&!$('#page-work').hidden)showSvc((sv+1)%4)},6000);
 
 /* building blocks tabs */
-const BBD=[['Patient intake','Getting patients and referrals into the system, with the right data from the start.',[['Bed availability and incoming transfers','Healthcare Transfer Center'],['HL7 ADT messages into one view','Healthcare Transfer Center'],['Intake, insurance and scheduling roadmap','Brain Health USA']],['healthcare-transfer-center','brain-health-usa']],
+const BBD=[['Patient intake','Getting patients and referrals into the system, with the right data from the start.',[['Bed availability and incoming transfers','Healthcare Transfer Center'],['HL7 ADT messages into one view','Healthcare Transfer Center'],['Intake, insurance and scheduling roadmap','Brain Health USA','plan']],['healthcare-transfer-center','brain-health-usa']],
  ['Clinical encounter','Charting, visits and the provider workflows that happen during care.',[['Core charting and patient encounters','Quilted Health'],['Provider workflow designs','Rewind'],['Charting and scheduling design','Child Care Healthtech']],['quilted-health','rewind','child-care-ehr']],
  ['Longitudinal care','Following patients over time, across programs, messages and care teams.',[['Patient timeline and notes','Everself'],['Calling, SMS and chat hub','Everself'],['Care model mapped to FHIR','Perci Health']],['everself-bariendo','perci-health']],
  ['Billing & payments','Plans, subscriptions and payments around care or product.',[['Recurring and prepaid plans','Splendid Spoon'],['Payments and distribution','Splendid Spoon'],['Online payments in an MVP','Mamaefit']],['splendid-spoon','mamaefit']],
@@ -1213,14 +1345,14 @@ const BBD=[['Patient intake','Getting patients and referrals into the system, wi
 let bi=0;
 $('#bbTabs').innerHTML=BBD.map((b,i)=>`<button class="bbt" role="tab" type="button" data-i="${i}" aria-selected="${i===0}"><i>0${i+1}</i>${b[0]}</button>`).join('');
 function showBB(i){bi=i;const [n,d,rows,ps]=BBD[i];$$('#bbTabs .bbt').forEach((b,k)=>b.setAttribute('aria-selected',String(k===i)));
- $('#bbBody').innerHTML=`<div><h3>${n}</h3><p>${d}</p><p class="small muted" style="margin-top:16px">Past client projects in this area:</p><div class="pj">${ps.map(s=>`<a href="${by(s).href||CASE(s)}" ${by(s).href?'':'target="_blank" rel="noopener"'}>${IMG[s]?`<img src="${IMG[s]}" alt="">`:''}${by(s).c}</a>`).join('')}</div></div><div class="bb-card"><div class="bbc-h"><span>What we built in this area</span><small>Source: published case studies</small></div>${rows.map(([w,c],k)=>`<div class="bbc-r" style="--k:${k}"><span class="ck">✓</span><div><b>${w}</b><small>${c}</small></div></div>`).join('')}<div class="bbc-l"><span class="ck">✓</span> delivered or designed in a past project, by our own classification</div></div>`}
+ $('#bbBody').innerHTML=`<div><h3>${n}</h3><p>${d}</p><p class="small muted" style="margin-top:16px">Past client projects in this area:</p><div class="pj">${ps.map(s=>`<a href="${by(s).href||CASE(s)}" ${by(s).href?'':'target="_blank" rel="noopener"'}>${IMG[s]?`<img src="${IMG[s]}" alt="">`:''}${by(s).c}</a>`).join('')}</div></div><div class="bb-card"><div class="bbc-h"><span>What we built in this area</span><small>Source: published case studies</small></div>${rows.map(([w,c,f],k)=>f?`<div class="bbc-r" style="--k:${k}"><span class="ck pl" aria-hidden="true">◷</span><div><b>${w}</b><small>${c} · <span class="st plan">Planned in discovery</span></small></div></div>`:`<div class="bbc-r" style="--k:${k}"><span class="ck">✓</span><div><b>${w}</b><small>${c}</small></div></div>`).join('')}<div class="bbc-l"><span class="ck">✓</span> delivered or designed in a past project, by our own classification</div></div>`}
 $$('#bbTabs .bbt').forEach(b=>b.onclick=()=>showBB(+b.dataset.i));
 showBB(0);
 
 /* proof carousel */
 const QT=[['One of the <span class="hl">most responsive agencies</span> I have ever worked with. They have <span class="hl">strong ownership</span> and are proactive in finding ways to improve processes and make work more efficient.','Carlos Montes','Quilted Health','CM','672c9aaf3db9839f04bb7f14_logo_quilted_black.webp'],['Vinta has been an <span class="hl">exceptional partner</span> for us. […] They hit the ground running immediately and within weeks it felt like they were a <span class="hl">core part of our collaborative team</span>.','Peter Thulson','CEO at Rewind','PT','67d1e8ad880aec13300c311f_logo_rewind_black.webp'],['Profit-driven consultancies would try to accumulate more work to do, but Vinta is always thinking about <span class="hl">what’s best for us</span> and only recommending we build <span class="hl">what’s really necessary</span>.','Ben Yoon','Former Head of Product & Performance Marketing, Everself','BY','6a21f37addf7c24beeba6cbf_logo_everself_white.webp']];
 let qi=0;
-function showQ(i){qi=(i+QT.length)%QT.length;const [q,n,r,ini,lg]=QT[qi];const c=$('#qCard');c.style.animation='none';c.offsetHeight;c.style.animation='';c.innerHTML=`<blockquote>“${q}”</blockquote><figcaption><span class="av" aria-hidden="true">${ini}</span><span><b>${n}</b><small>${esc(r)}</small></span><img src="${LB+lg}" alt="" loading="lazy"></figcaption>`;$('#qNum').innerHTML=`0${qi+1} <small>/ 0${QT.length}</small>`;$('#qDots').innerHTML=QT.map((_,k)=>`<i class="${k===qi?'on':''}"></i>`).join('')}
+function showQ(i){qi=(i+QT.length)%QT.length;const [q,n,r,ini,lg]=QT[qi];const c=$('#qCard');c.style.animation='none';c.offsetHeight;c.style.animation='';c.innerHTML=`<span class="sector">${['Healthcare · Quilted Health','Healthcare · Rewind','Healthcare · Everself'][qi]}</span><blockquote>“${q}”</blockquote><figcaption><span class="av" aria-hidden="true">${ini}</span><span><b>${n}</b><small>${esc(r)}</small></span><img src="${LB+lg}" alt="" loading="lazy"></figcaption>`;$('#qNum').innerHTML=`0${qi+1} <small>/ 0${QT.length}</small>`;$('#qDots').innerHTML=QT.map((_,k)=>`<i class="${k===qi?'on':''}"></i>`).join('')}
 $('#qPrev').onclick=()=>showQ(qi-1);$('#qNext').onclick=()=>showQ(qi+1);showQ(0);
 
 /* ---------- quilted v2 ---------- */
@@ -1241,7 +1373,7 @@ const L=[[5,8,40,52],[12,50,60,10],[30,5,85,55],[50,58,95,14],[70,6,20,40],[88,4
 function orderLines(){$$('#chaos line').forEach((l,i)=>{const y=6+i*7.5;l.setAttribute('x1',-4);l.setAttribute('y1',y);l.setAttribute('x2',-1);l.setAttribute('y2',y);l.style.opacity=0})}
 $('#patterns').innerHTML=[['When a platform <strong>no longer fits</strong> the care model','Moving from a standardized system to one shaped around how a team delivers care.',['everself-bariendo','rewind']],['When a prototype has to become a <strong>production system</strong>','Deciding what to keep, what to rebuild and in what order.',['brain-health-usa']],['When data has to <strong>move between systems</strong>','Modeling clinical data in FHIR and connecting to the systems around it.',['healthcare-transfer-center','perci-health']]].map(([t,d,r],i)=>`<div class="pat reveal"><span class="pn">PATTERN 0${i+1}</span><h3>${t}</h3><p>${d}</p><div class="rels">${r.map(s=>`<a href="${CASE(s)}" target="_blank" rel="noopener">${IMG[s]?`<img src="${IMG[s]}" alt="">`:''}${by(s).c}</a>`).join('')}</div></div>`).join('');
 const SMAP=[['▤',['Legacy rebuild','Feature parity','Migration']],['◆',['FHIR data model','Mantine components','SOC 2 & HIPAA support']],['⇄',['Lab integrations','eFax (planned)','DoseSpot (planned)']]];
-$('#svcmap').innerHTML=SVC.slice(0,3).map((s,i)=>`<div class="sm"><span class="nd">${SMAP[i][0]}</span><h3>${s.t}</h3><p class="small muted">${s.d}</p><div class="ch">${SMAP[i][1].map(c=>`<span>${c}</span>`).join('')}</div><a class="link small" href="${s.h}" target="_blank" rel="noopener">${s.l}</a></div>`).join('');
+$('#svcmap').innerHTML=SVC.slice(0,3).map((s,i)=>`<div class="sm"><span class="nd">${SMAP[i][0]}</span><h3>${s.t}</h3><p class="small muted">${s.d}</p><div class="ch">${SMAP[i][1].map(c=>`<span>${c}</span>`).join('')}</div><a class="abtn" href="${s.h}" target="_blank" rel="noopener">${s.l} <span class="ra" aria-hidden="true">→</span></a></div>`).join('');
 
 /* ---------- motion observers ---------- */
 let io;
@@ -1285,6 +1417,7 @@ $('#drawer').innerHTML=`<h2>Decisões para você</h2><p class="muted">Pontos abe
 $$('#drawer .go').forEach(b=>b.onclick=()=>{const n=+b.dataset.go;const el=$(`[data-n="${n}"]`);location.hash=n>10?'quilted':'work';setTimeout(()=>{document.body.classList.add('notes');$('#ntT').checked=true;goTo(`[data-n="${n}"]`);el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),2200)},120)});
 
 route();
+window.__vok=1;
 })();
 </script>
 </body>
