@@ -1,0 +1,11 @@
+{
+  "name": "vinta-work-quilted-redesign",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Redesign of Vinta's Work page and Quilted Health case study (web design challenge).",
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "preview": "python3 scripts/build.py && python3 -m http.server 8080 --directory dist"
+  },
+  "engines": { "node": ">=18" }
+}
